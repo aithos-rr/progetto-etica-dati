@@ -93,7 +93,9 @@ invece serve alla narrativa CA vs MS):
    con valore costante `'CA'` o `'MS'`
 4. Concatenare i due DataFrames `features` e i due array `label`
 5. **Subsample stratificato** sulla colonna `STATE` finale →
-   50.000 record totali (25k CA + 25k MS), `random_state=42`
+   ~44.000 record bilanciati N+N (dove N è il minimo tra
+   dimensione CA e dimensione MS, determinato a runtime;
+   Mississippi è il collo di bottiglia), `random_state=42`
 
 Dopo il subsample:
 - Display di `df.head()`, `df.shape`, `df.dtypes`
@@ -102,8 +104,10 @@ Dopo il subsample:
 
 **DoD**:
 - Dataset scaricato e caricato su Colab in <60 secondi
-- Dimensione finale: **50.000 record bilanciati 25k+25k tra CA e MS
-  via stratified sampling** (`random_state=42`)
+- Dimensione finale: **~44.000 record bilanciati N+N (dove N è il
+  minimo tra dimensione CA e dimensione MS, determinato a runtime;
+  Mississippi è il collo di bottiglia) via stratified sampling**
+  (`random_state=42`)
 - Colonna `STATE` presente e correttamente popolata (`'CA'`/`'MS'`)
 - Classificazione attributi visualizzata in formato leggibile
 
