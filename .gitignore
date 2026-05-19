@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data (i dataset li scarica Folktables al volo, non versionano)
+data/*
+!data/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Windows Mark-of-the-Web (WSL)
+*:Zone.Identifier
+
+# Output temporanei
+*.log
+*.tmp
