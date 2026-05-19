@@ -157,3 +157,21 @@ senza prima averla approvata in chat con Claude**.
 | AI Act (Reg. UE 2024/1689) | Art. 10 (dati di training per high-risk AI) | Sezione bias |
 | GDPR (Reg. UE 2016/679) | Art. 22 (decisioni automatizzate) | Sezione bias, introduzione |
 | GDPR | Considerando 26 (definizione dato anonimo) | Sezione privacy/anonimizzazione |
+
+## Riferimenti filosofici di approfondimento (oltre quelli del prof)
+
+Letture aggiuntive usate per nutrire le sezioni di discussione
+(sezioni 9, 13, 14 del notebook). Non sostituiscono i riferimenti
+del prof, li integrano sul versante critico/filosofico.
+
+- **Barocas, Hardt, Narayanan**, *Fairness and Machine Learning*,
+  MIT Press 2023 — https://fairmlbook.org
+  - **Cap. 1 "Why ML?"** — limiti della fairness intesa come
+    proprietà puramente tecnica del modello; il bias come fenomeno
+    socio-tecnico context-dependent. Aggancio: narrativa CA vs MS
+    nel notebook (sezione 2 + discussione integrata sezione 14).
+  - **Cap. 3 "Classification"** — formalizzazione delle metriche
+    di fairness, impossibility theorem (Chouldechova/Kleinberg),
+    trade-off tra demographic parity, equalized odds e calibration.
+    Aggancio: sezione 6 (markdown finale sull'impossibility) e
+    sezione 9 (curva di Pareto accuracy↔fairness).

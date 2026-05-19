@@ -23,8 +23,23 @@ integrata nell'audit di bias). Il deliverable è un Jupyter Notebook
   - Attributi sensibili: race (primario), sex (secondario)
   - Quasi-identificatori per modulo privacy: age, SCHL (education), OCCP
     (occupation), POBP (place of birth)
-  - Filtro: 2 stati USA (California + Mississippi) → narrativa
-    contestuale, dimensione gestibile su Colab (~250k record per stato)
+  - Filtro: 2 stati USA, California (CA) + Mississippi (MS)
+  - Subsample finale: **50.000 record totali**, ottenuti via
+    stratified sampling sulla colonna `STATE` (25k CA + 25k MS),
+    `random_state=42`
+  - Motivazione narrativa: confronto **context-dependent fairness**
+    tra uno stato ad alto reddito medio (CA) e uno a basso reddito
+    medio (MS) → il bias rilevato non è proprietà solo del
+    modello/dato ma anche del contesto socio-economico. Riferimento:
+    Barocas-Hardt-Narayanan cap. 1 sui limiti della fairness come
+    proprietà puramente tecnica.
+  - **Nota tecnica gestione colonna STATE**: `ACSIncome.df_to_pandas()`
+    rimuove la colonna `ST` perché non è feature del task. Per
+    preservare lo stato come variabile esplicita nella narrativa CA
+    vs MS, scaricare CA e MS separatamente, applicare
+    `df_to_pandas()` su ciascuno, aggiungere a mano la colonna
+    `STATE` (valore costante `'CA'` o `'MS'`), concatenare, infine
+    applicare lo stratified subsample.
 - **Aree etiche affrontate**: 2 di 4 (Bias/Equità + Privacy).
   Interpretabilità è sotto-tema del modulo Bias (slide 29 del prof).
   Autenticità non affrontata: fuori scope.

@@ -81,17 +81,30 @@ shap, lime, imbalanced-learn, diffprivlib, matplotlib, seaborn, scipy`
 - Perché 2 stati: California (diverso da Mississippi)
 - Lista esplicita degli attributi: target, sensibili, quasi-ID
 
-**Codice**:
-- Download del dataset via `folktables.ACSDataSource` per i due stati
-- Creazione di un singolo DataFrame con colonna `STATE` aggiunta
+**Codice** — procedura corretta in 5 step (necessaria perché
+`ACSIncome.df_to_pandas()` scarta la colonna `ST` dello stato, che
+invece serve alla narrativa CA vs MS):
+1. Download separato dei due stati via
+   `data_source.get_data(states=["CA"])` e
+   `data_source.get_data(states=["MS"])`
+2. Per ogni stato, applicare `ACSIncome.df_to_pandas(data)` per
+   ottenere `(features, label, group)`
+3. Aggiungere a mano una colonna `STATE` al DataFrame `features`
+   con valore costante `'CA'` o `'MS'`
+4. Concatenare i due DataFrames `features` e i due array `label`
+5. **Subsample stratificato** sulla colonna `STATE` finale →
+   50.000 record totali (25k CA + 25k MS), `random_state=42`
+
+Dopo il subsample:
 - Display di `df.head()`, `df.shape`, `df.dtypes`
 - Tabella che classifica ogni colonna come: target / sensibile /
   quasi-identificatore / feature normale
 
 **DoD**:
 - Dataset scaricato e caricato su Colab in <60 secondi
-- Dimensione finale: ~50k record (subsample stratificato per
-  performance Colab) — usare seed
+- Dimensione finale: **50.000 record bilanciati 25k+25k tra CA e MS
+  via stratified sampling** (`random_state=42`)
+- Colonna `STATE` presente e correttamente popolata (`'CA'`/`'MS'`)
 - Classificazione attributi visualizzata in formato leggibile
 
 ---
