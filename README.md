@@ -75,8 +75,7 @@ modifiche né setup locale. Procedura:
    → selezionare `notebooks/progetto_etica_dati.ipynb`.
 3. Runtime → Restart and run all.
 
-Tempo di esecuzione completo atteso: ~3-5 minuti su Colab free tier
-(la cella più lenta è l'ExponentiatedGradient della Sezione 8, ~60-90s).
+Tempo di esecuzione completo atteso: ~3-5 minuti su Colab free tier.
 
 ### Dipendenze
 
